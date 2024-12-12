@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# Front-end Part
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Дана частина коду представляє з себе клієнтський застосунок для любителів книжок.
 
-Currently, two official plugins are available:
+_В розробці_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Запуск
 
-## Expanding the ESLint configuration
+1. Перейдіть до директорії з фронтендом:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+   ```bash
+   cd ./frontend
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Встановіть необхідні залежності:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```bash
+   npm install
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. Запустіть проект в режимі розробки:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   npm run dev
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Додаткова інформація
+
+- Проект використовує [Vite](https://vitejs.dev/) для швидкого запуску і розробки.
+- У разі виникнення помилок перевірте, чи встановлені Node.js та npm, а також чи відповідають їх версії вимогам проекту.
+- Якщо порт, на якому працює сервер розробки, вже зайнятий, ви можете змінити його, додавши флаг `--port`:
+
+   ```bash
+   npm run dev -- --port=3001
+   ```
+
+- Для збору проекту використовуйте команду:
+
+   ```bash
+   npm run build
+   ```
+
