@@ -1,0 +1,1 @@
+This project represents an information system for managing a network of bookstores. The system is designed to automate business processes, optimize customer service, and enhance the organization’s operational efficiency. Its key features include inventory management, order processing, analytics, employee management, and integration with web platforms for online sales.
