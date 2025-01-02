@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head lang="en">
+
+    <title>Spring Boot Example</title>
+
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
+
+<form th:object="${book}" th:action="@{/book}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="hidden" th:field="*{version}"/>
+    <md-content layout="column" layout-align="start start" flex layout-padding>
+        <span flex class="md-headline">book Details</span>
+        <div md-theme="green" flex>
+            <md-input-container>
+                <label>book Id</label>
+                <input type="text" th:field="*{bookId}">
+            </md-input-container>
+            <md-input-container>
+                <label>Name</label>
+                <input type="text" th:field="*{title}">
+            </md-input-container>
+            <md-input-container>
+                <label>Price</label>
+                <input type="text" th:field="*{price}">
+            </md-input-container>
+<!--            File to upload:-->
+<!--            <input type="file" th:name="file"/>-->
+            <md-button type='submit' value="Upload" class="md-raised md-primary">Submit</md-button>
+        </div>
+    </md-content>
+</form>
+<th:block th:include="fragments/headerinc :: angular"></th:block>
+
+</body>
+</html>

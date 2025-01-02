@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en" th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet"
+          th:href="@{/bower_components/angular-material/angular-material.min.css}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+</head>
+
+<body>
+<div th:fragment="angular">
+    <script type="text/javascript"
+            th:src="@{/bower_components/angular/angular.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/bower_components/angular-animate/angular-animate.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/bower_components/angular-aria/angular-aria.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/bower_components/angular-material/angular-material.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/bower_components/angular-messages/angular-messages.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/bower_components/angular-validation-match/dist/angular-validation-match.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/bower_components/svg-assets-cache.js/svg-assets-cache.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/bower_components/jquery/dist/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+</div>
+</body>
+
+</html>

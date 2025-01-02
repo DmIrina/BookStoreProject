@@ -1,0 +1,27 @@
+body {
+    font-size: 10pt;
+}
+
+#SingUp {
+    background-color: #F44336;
+    color: white
+}
+
+#SingIn {
+    background-color: #FFFFFF;
+    color: #F44336;
+}
+
+.SingUpTemplate {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.md-toolbar-tools {
+    background-color: lightskyblue;
+}
+.md-dialog-content{
+    background-color: white;
+    margin-top:-20px;
+}

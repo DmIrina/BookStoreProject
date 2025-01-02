@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head>
+    <title>Books</title>
+</head>
+<th:block th:include="fragments/headerinc :: head"></th:block>
+
+<!--<body>-->
+<!--<th:block th:include="fragments/header :: header"></th:block>-->
+<!--<h1>Book List</h1>-->
+<!--<ul>-->
+<!--    <li th:each="book : ${books}" th:text="${book.title}">Book Title</li>-->
+<!--</ul>-->
+<!--<th:block th:include="fragments/headerinc :: angular"></th:block>-->
+<!--</body>-->
+<body layout="column">
+<th:block th:include="fragments/header :: header"></th:block>
+
+<!--<div th:if="${not #lists.isEmpty(books)}">-->
+<!--    <h2>Book List</h2>-->
+<!--    <table class="table table-striped">-->
+<!--        <tr>-->
+<!--            <th>Id</th>-->
+<!--            <th>Book Id</th>-->
+<!--            <th>Title</th>-->
+<!--            <th>Price</th>-->
+<!--            <th></th>-->
+<!--&lt;!&ndash;            <th>Photo</th>&ndash;&gt;-->
+<!--            <th>View</th>-->
+<!--            <th>Edit</th>-->
+<!--            <th>Delete</th>-->
+<!--        </tr>-->
+<!--        <tr th:each="book : ${books}">-->
+<!--            <td th:text="${book.id}"><a href="/book/${book.id}">Id</a></td>-->
+<!--            <td th:text="${book.bookId}">Book Id</td>-->
+<!--            <td th:text="${book.title}">description</td>-->
+<!--            <td th:text="${'$'+ #numbers.formatDecimal(book.price, 1, 2)}">price</td>-->
+<!--            <td>-->
+<!--                <span th:if="${book.price lt 100}">Special offer!</span>-->
+<!--            </td>-->
+<!--&lt;!&ndash;            <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                <img width="20" th:src="@{/images/avatar/{photoNames}(photoNames=${book.coverImage})}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </td>&ndash;&gt;-->
+<!--            <td><a th:href="${'/book/' + book.id}">View</a></td>-->
+<!--            <td><a th:href="${'/book/edit/' + book.id}">Edit</a></td>-->
+<!--            <td><a th:href="${'/book/delete/' + book.id}">Delete</a></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+
+<div ng-controller="template">
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols="4" layout-margin layout-padding="5px;" md-gutter="2em"
+                  md-row-height="4:5">
+        <md-grid-tile ng-repeat="mobile in mobile">
+            <md-card md-whiteframe="3">
+                <md-card-header style="height: 55px; background-color: yellow">
+                    <!--<md-card-header-text style="background-color: yellow">-->
+                    <div class="md-title" style="color: #0c2238; margin-left: auto; margin-right: auto">
+                        {{mobile.name}}
+                    </div>
+                    <md-button layout="row" layout-align="end start" style="margin-top: -7px;" class="md-icon-button"
+                               ng-click="cancel()">
+                        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                    </md-button>
+                </md-card-header>
+                <!--                <div style="width:100%; height: 100%; ">-->
+                <!--                    <img ng-src="{{mobile.img}}" class="md-card-image" alt="Washed Out">-->
+                <!--                </div>-->
+                <md-card-content style="margin-left: auto; margin-right: auto">
+                    <span contenteditable="true" class="md-body-1">Тільки сьогодні знижка 15%!</span>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="space-around center">
+                    <md-button class="md-raised" style="background-color: yellow; color: black">
+                        Add to basket
+                    </md-button>
+                    <md-button class="md-raised" style="background-color: yellow; color: black">
+                        Buy
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </md-grid-tile>
+
+        <md-grid-tile ng-repeat="subitem in item.subitems track by $index">
+            <sub-item-partial></sub-item-partial>
+        </md-grid-tile>
+    </md-grid-list>
+</div>
+<div th:if="${not #lists.isEmpty(books)}">
+<nav>
+    <ul class="pagination" th:with="total = ${books.totalPages}">
+        <li th:if="${books.hasPrevious()}">
+            <a th:href="@{/books(page=${books.previousPageable().pageNumber},size=${books.size})}"
+               aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li th:each="page : ${#numbers.sequence(0, total - 1)}"><a
+                th:href="@{/books(page=${page},size=${books.size})}" th:text="${page + 1}">1</a></li>
+        <li th:if="${books.hasNext()}">
+            <a th:href="@{/users(page=${books.nextPageable().pageNumber},size=${books.size})}"
+               aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+<th:block th:include="fragments/headerinc :: angular"></th:block>
+
+</body>
+</html>

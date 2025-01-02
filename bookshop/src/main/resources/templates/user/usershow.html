@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head lang="en">
+
+    <title>Spring Boot Exemple</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+<h2>User Details</h2>
+<div>
+    <form class="form-horizontal">
+        <p th:text="'User Id: '+${user.id}"></p>
+        <p th:text="'Email: '+${user.email}"></p>
+        <p th:text="'Name : '+${user.username}"></p>
+        <p th:text="'Role : '+${user.role}"></p>
+        <p th:text="'isAccountNonLocked : '+${user.isAccountNonLocked}"></p>
+    </form>
+</div>
+<th:block th:include="fragments/headerinc :: angular"></th:block>
+</body>
+</html>

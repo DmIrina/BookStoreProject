@@ -1,0 +1,24 @@
+{
+  "name": "bookshop",
+  "homepage": "https://github.com/DmIrina/BookStoreProject",
+  "authors": [
+    "DmIrina <dmytriieva.iryna@gmail.com>"
+  ],
+  "description": "selling books app",
+  "main": "",
+  "keywords": [
+    "book",
+    "store",
+    "bookshop",
+    "user",
+    "bookstore"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular-material": "^1.2.5",
+    "bootstrap": "^5.3.3",
+    "angular-validation-match": "^1.9.0",
+    "angular-messages": "^1.6.4",
+    "jquery": "^3.7.1"
+  }
+}
