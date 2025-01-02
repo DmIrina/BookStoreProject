@@ -8,20 +8,20 @@
 <body layout="column">
 <th:block th:include="fragments/header :: header"></th:block>
 
-        <!--/*@thymesVar id="users" type="com.khimin.shop.controllers.UserController"*/-->
+        <!--/*@thymesVar id="users" type="com.example.bookshop.controllers.UserController"*/-->
 
 <div th:if="${not #lists.isEmpty(users)}">
-    <h2>book List</h2>
+    <h2>Користувачі</h2>
     <table class="table table-striped">
         <tr>
             <th>Id</th>
             <th>Email</th>
-            <th>username</th>
-            <th>isAccountNonLocked</th>
-            <th>role</th>
-            <th>View</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Юзернейм</th>
+            <th>Акаунт не заблоковано</th>
+            <th>Роль</th>
+            <th>Переглянути</th>
+            <th>Редагувати</th>
+            <th>Видалити</th>
         </tr>
         <tr th:each="user : ${users}">
             <td th:text="${user.id}"><a href="/users/${users.id}">Id</a></td>

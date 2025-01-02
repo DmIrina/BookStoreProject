@@ -5,63 +5,31 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <title>Title</title>
+    <title>Головна</title>
 </head>
 <body>
 <div th:fragment="header">
     <md-toolbar>
         <div class="md-toolbar-tools">
             <md-button href="/" aria-label="Home">
-                Home
+                Головна
             </md-button>
             <md-button href="/books" aria-label="books">
-                Books
+                Каталог
             </md-button>
             <md-button href="/registration" aria-label="Create new registration">
-                registration
+                Реєстрація
             </md-button>
-
-<!--            <div th:if="${#authorization.expression('isAuthenticated()')}">-->
-<!--                <md-button href="/cabinet" aria-label="Profile">-->
-<!--                    Profile-->
-<!--                </md-button>-->
-<!--            </div>-->
-<!--            <div th:if="${#authorization.expression('!isAuthenticated()')}">-->
-<!--                <md-button href="/login" aria-label="Log In">-->
-<!--                    Log In-->
-<!--                </md-button>-->
-<!--            </div>-->
             <div sec:authorize="isAuthenticated()">
-                <md-button href="/cabinet" aria-label="Profile">Profile</md-button>
+                <md-button href="/cabinet" aria-label="Profile">
+                    Профіль
+                </md-button>
             </div>
             <div sec:authorize="!isAuthenticated()">
-                <md-button href="/login" aria-label="Log In">Log In</md-button>
+                <md-button href="/login" aria-label="Log In">
+                    Увійти
+                </md-button>
             </div>
-
-            <div sec:authorize="isAuthenticated()">
-                <h1>Hello <span sec:authentication="name"></span>!</h1>
-            </div>
-            <div sec:authorize="!isAuthenticated()">
-                <h1>Guest</h1>
-            </div>
-
-
-
-            <!--            <div th:if="${#authorization.expression('isAuthenticated()')}">-->
-<!--&lt;!&ndash;                <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>&ndash;&gt;-->
-<!--                <div th:if="${#httpServletRequest.remoteUser != null}">-->
-<!--                    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>-->
-<!--                </div>-->
-<!--                <div th:if="${#httpServletRequest.remoteUser == null}">-->
-<!--                    <h1>Guest</h1>-->
-<!--                </div>-->
-
-<!--                <form th:action="@{/logout}" method="post">-->
-<!--                    <md-button type="submit" style="background: red">-->
-<!--                        Sing Out-->
-<!--                    </md-button>-->
-<!--                </form>-->
-<!--            </div>-->
         </div>
     </md-toolbar>
     <div sec:authorize="hasAuthority('ADMIN')">
@@ -69,10 +37,10 @@
 
             <div class="md-toolbar-tools">
                 <md-button href="/users" aria-label="Users">
-                    Users
+                    Користувачі
                 </md-button>
                 <md-button href="/book/new" aria-label="Create new book">
-                    Create new book
+                    Додати нову книжку
                 </md-button>
             </div>
 

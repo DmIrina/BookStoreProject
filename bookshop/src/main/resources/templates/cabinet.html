@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
 
 <head>
-    <title>Hello World!</title>
+    <title>Кабінет!</title>
 </head>
 <th:block th:include="fragments/headerinc :: head"></th:block>
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 
-    <h1 th:inline="text">Hello [[${principle.username}]]!</h1>
+    <h1 th:inline="text">Вітаємо, [[${principle.username}]]!</h1>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
@@ -16,9 +16,9 @@
     <form class="form-horizontal">
         <p th:text="'principle Id: '+${principle.id}"></p>
         <p th:text="'Email: '+${principle.email}"></p>
-        <p th:text="'Name : '+${principle.username}"></p>
-        <p th:text="'Role : '+${principle.role}"></p>
-        <p th:text="'isAccountNonLocked : '+${principle.isAccountNonLocked}"></p>
+        <p th:text="'Юзернейм : '+${principle.username}"></p>
+        <p th:text="'Роль : '+${principle.role}"></p>
+        <p th:text="'Акаунт не заблоковано : '+${principle.isAccountNonLocked}"></p>
     </form>
 </div>
 <md-button th:href="${'/principle/edit/' + principle.id}" >Edit</md-button>

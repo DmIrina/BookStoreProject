@@ -8,14 +8,14 @@
 <th:block th:include="fragments/header :: header"></th:block>
 
 <header>
-    <div ng-controller="AppCtrl" layout="row" layout-align="end  center">
-        <md-button class="md-raised" id="SingIn">
-            Sing in
-        </md-button>
-        <md-button class="md-raised" id="SingUp" ng-click="SingUp($event)">
-            Sing up
-        </md-button>
-    </div>
+<!--    <div ng-controller="AppCtrl" layout="row" layout-align="end  center">-->
+<!--        <md-button class="md-raised" id="SingIn">-->
+<!--            -->
+<!--        </md-button>-->
+<!--        <md-button class="md-raised" id="SingUp" ng-click="SingUp($event)">-->
+<!--            Sing up-->
+<!--        </md-button>-->
+<!--    </div>-->
 </header>
 
 
@@ -34,11 +34,11 @@
     <md-content md-theme="dark-yel" layout-padding layout-align="start center">
         <div layout-align="center center" style="padding-right: 30px;">
             <div class="md-headline">
-                Forgot your password ?
+                Забули свій пароль ?
             </div>
         </div>
         <div class="md-subhead">
-            To reset your password, type the full email address
+            Щоб відновити свій пароль, введіть повний email
         </div>
         <md-input-container style="width: 350px; margin-bottom: -30px;">
             <form name="userForm">
@@ -212,12 +212,12 @@
                             </div>
 
                             <md-checkbox aria-label="Remember me" style="margin-left: 4px">
-                                Remember me
+                                Запам'ятати мене
                             </md-checkbox>
 
                             <md-button ng-click="forgetpassword($event)">
                                 <label style="text-decoration: underline; color:dodgerblue;">
-                                    Did you forget your password ?
+                                    Забули пароль ?
                                 </label>
                             </md-button>
 

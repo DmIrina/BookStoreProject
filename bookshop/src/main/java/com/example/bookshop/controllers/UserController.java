@@ -49,7 +49,6 @@ public class UserController {
      */
     @RequestMapping("user/{id}")
     public String showUser(@PathVariable Long id, Model model) throws UsernameNotFoundException, UserNotFoundException {
-//        model.addAttribute("user", userRepository.findById(id));
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()) {
             model.addAttribute("user", optionalUser.get());

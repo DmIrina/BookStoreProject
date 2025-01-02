@@ -8,32 +8,25 @@ myApp.config(function ($mdThemingProvider) {
 myApp.controller('template', function ($scope) {
     $scope.mobile = [
         {
-            "name": "HTC One X",
-            // "img": "components/image/phone/htc-one-s.png"
+            "title": "Шістка воронів",
         },
         {
-            "name": "Meizu mx4",
-            // "img": "components/image/phone/meizu.jpg"
+            "title": "Мемуари Ванітаса",
         },
         {
-            "name": "Iphone 7",
-            // "img": "components/image/phone/iphone7.jpg"
+            "title": "Володар перснів",
         },
         {
-            "name": "Sony Experia Z5",
-            // "img": "components/image/phone/sony_xperia_z5_green.jpg"
+            "title": "Про свободу",
         },
         {
-            "name": "Meizu mx4",
-            // "img": "components/image/phone/meizu.jpg"
+            "title": "Я бачу вас цікавить пітьма",
         },
         {
-            "name": "Iphone 7",
-            // "img": "components/image/phone/iphone7.jpg"
+            "title": "Ерагон",
         },
         {
-            "name": "Sony Experia Z5",
-            // "img": "components/image/phone/sony_xperia_z5_green.jpg"
+            "title": "Відьмак",
         }
     ];
 });
@@ -67,7 +60,7 @@ myApp.controller('AppCtrl', function ($scope, $mdDialog, $mdMedia, $mdToast) {
         $mdToast.show(
             $mdToast.simple()
                 .position('bottom right')
-                .textContent('You already logined!')
+                .textContent('You logged in!')
                 .hideDelay(3000)
         );
     };
@@ -84,7 +77,7 @@ myApp.controller('AppCtrl', function ($scope, $mdDialog, $mdMedia, $mdToast) {
         $mdToast.show(
             $mdToast.simple()
                 .position('bottom right')
-                .textContent('You already registered!')
+                .textContent('You registered!')
                 .hideDelay(3000)
         );
     };

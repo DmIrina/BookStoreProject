@@ -37,16 +37,9 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
         LOG.info("Finded user : [" + username + "]");
-        // Додаємо лог для перевірки пароля
         System.out.println("User found: " + user.getUsername() + ", password: " + user.getPassword());
 
         MyUserPrincipal myUserPrincipal = new MyUserPrincipal(user);
-//        myUserPrincipal.setId(user.getId());
-//        myUserPrincipal.setUsername(user.getUsername());
-//        myUserPrincipal.setEmail(user.getEmail());
-//        myUserPrincipal.setPassword(user.getPassword());
-//        myUserPrincipal.setRole(user.getRole());
-//        myUserPrincipal.setIsAccountNonLocked(user.getIsAccountNonLocked());
 
         return myUserPrincipal;
     }
@@ -77,12 +70,6 @@ public class MyUserDetailsService implements UserDetailsService {
             }
             return authorities;
         }
-
-
-//        @Override
-//        public Collection<? extends GrantedAuthority> getAuthorities() {
-//            return AuthorityUtils.createAuthorityList(user.getRole().toString());
-//        }
 
         @Override
         public String getPassword() {

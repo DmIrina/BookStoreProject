@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
 <head>
-    <title> - 'Spring Security Example - </title>
+    <title> - Log In - </title>
 </head>
 <th:block th:include="fragments/headerinc :: head"></th:block>
 
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 <div th:if="${param.error}">
-    Invalid username and password.
+    Неправильний юзернейм або пароль.
 </div>
 <div th:if="${param.logout}">
-    You have been logged out.
+    Ви вийшли з облікового запису.
 </div>
 <form th:action="@{/login}" method="post">
     <md-content layout="column" layout-align="start start" flex layout-padding>
-        <span flex class="md-headline">User Details</span>
+        <span flex class="md-headline">Деталі користувача</span>
         <div md-theme="green" flex>
             <md-input-container>
-                <label>Username</label>
+                <label>Юзернейм</label>
                 <input type="text" name="username">
             </md-input-container>
             <md-input-container>
-                <label>Password</label>
+                <label>Пароль</label>
                 <input type="text" name="password">
             </md-input-container>
             <md-button type='submit' class="md-raised md-primary">Submit</md-button>
