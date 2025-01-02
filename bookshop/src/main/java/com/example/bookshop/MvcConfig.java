@@ -36,7 +36,8 @@ public class MvcConfig implements WebMvcConfigurer {
                     @Override
                     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
                         String remoteUser = request.getRemoteUser();
-                        request.setAttribute("remoteUser", remoteUser != null ? remoteUser : "Guest");
+//                        request.setAttribute("remoteUser", remoteUser != null ? remoteUser : "Guest");
+                        request.setAttribute("remoteUser", remoteUser);
                         return true;
                     }
                 });

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
 <head lang="en">
 
-    <title>Spring Boot Exemple</title>
+    <title>New book</title>
     <th:block th:include="fragments/headerinc :: head"></th:block>
 </head>
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 <h2>Book Details</h2>
 <div>
-    <!--<a th:href="@{/order/{id}/details(id=3,action='show_all')}">-->
+
     <form class="form-horizontal" >
         <p th:text="'book Id: '+${book.id}"></p>
-        <p th:text="'Name : '+${book.name}"></p>
-        <p th:text="'Price : '+${book.price}"></p>
-        <p th:text="'Price : '+${book.coverimage}"></p>
-        <img width="200" th:src="@{/images/avatar/{photoNames}(photoNames=${book.coverImage})}"/>
+        <p th:text="'Назва : '+${book.title}"></p>
+        <p th:text="'Ціна : '+${book.price}"></p>
+        <p th:text="'Обкладинка : '+${book.coverImage}"></p>
+        <img width="200" th:src="@{/images/{coverImages}(coverImages=${book.coverImage})}"/>
     </form>
 </div>
 <th:block th:include="fragments/headerinc :: angular"></th:block>

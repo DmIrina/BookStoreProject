@@ -6,48 +6,40 @@
 </head>
 <th:block th:include="fragments/headerinc :: head"></th:block>
 
-<!--<body>-->
-<!--<th:block th:include="fragments/header :: header"></th:block>-->
-<!--<h1>Book List</h1>-->
-<!--<ul>-->
-<!--    <li th:each="book : ${books}" th:text="${book.title}">Book Title</li>-->
-<!--</ul>-->
-<!--<th:block th:include="fragments/headerinc :: angular"></th:block>-->
-<!--</body>-->
 <body layout="column">
 <th:block th:include="fragments/header :: header"></th:block>
 
-<!--<div th:if="${not #lists.isEmpty(books)}">-->
-<!--    <h2>Book List</h2>-->
-<!--    <table class="table table-striped">-->
-<!--        <tr>-->
-<!--            <th>Id</th>-->
-<!--            <th>Book Id</th>-->
-<!--            <th>Title</th>-->
-<!--            <th>Price</th>-->
-<!--            <th></th>-->
-<!--&lt;!&ndash;            <th>Photo</th>&ndash;&gt;-->
-<!--            <th>View</th>-->
-<!--            <th>Edit</th>-->
-<!--            <th>Delete</th>-->
-<!--        </tr>-->
-<!--        <tr th:each="book : ${books}">-->
-<!--            <td th:text="${book.id}"><a href="/book/${book.id}">Id</a></td>-->
-<!--            <td th:text="${book.bookId}">Book Id</td>-->
-<!--            <td th:text="${book.title}">description</td>-->
-<!--            <td th:text="${'$'+ #numbers.formatDecimal(book.price, 1, 2)}">price</td>-->
-<!--            <td>-->
-<!--                <span th:if="${book.price lt 100}">Special offer!</span>-->
-<!--            </td>-->
-<!--&lt;!&ndash;            <td>&ndash;&gt;-->
-<!--&lt;!&ndash;                <img width="20" th:src="@{/images/avatar/{photoNames}(photoNames=${book.coverImage})}"/>&ndash;&gt;-->
-<!--&lt;!&ndash;            </td>&ndash;&gt;-->
-<!--            <td><a th:href="${'/book/' + book.id}">View</a></td>-->
-<!--            <td><a th:href="${'/book/edit/' + book.id}">Edit</a></td>-->
-<!--            <td><a th:href="${'/book/delete/' + book.id}">Delete</a></td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</div>-->
+<div th:if="${not #lists.isEmpty(books)}">
+    <h2>Book List</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Book Id</th>
+            <th>Назва</th>
+            <th>Ціна</th>
+            <th></th>
+            <th>Обкладинка</th>
+            <th>Переглянути</th>
+            <th>Редагувати</th>
+            <th>ВИдалити</th>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"><a href="/book/${book.id}">Id</a></td>
+            <td th:text="${book.bookId}">Book Id</td>
+            <td th:text="${book.title}">Назва</td>
+            <td th:text="${'$'+ #numbers.formatDecimal(book.price, 1, 2)}">Ціна</td>
+            <td>
+                <span th:if="${book.price lt 100}">Special offer!</span>
+            </td>
+            <td>
+                <img width="20" th:src="@{/images/{coverImages}(coverImages=${book.coverImage})}"/>
+            </td>
+            <td><a th:href="${'/book/' + book.id}">Переглянути</a></td>
+            <td><a th:href="${'/book/edit/' + book.id}">Редагувати</a></td>
+            <td><a th:href="${'/book/delete/' + book.id}">Видалити</a></td>
+        </tr>
+    </table>
+</div>
 
 <div ng-controller="template">
     <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols="4" layout-margin layout-padding="5px;" md-gutter="2em"
@@ -71,12 +63,12 @@
                     <span contenteditable="true" class="md-body-1">Тільки сьогодні знижка 15%!</span>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="space-around center">
-                    <md-button class="md-raised" style="background-color: yellow; color: black">
-                        Add to basket
-                    </md-button>
-                    <md-button class="md-raised" style="background-color: yellow; color: black">
-                        Buy
-                    </md-button>
+<!--                    <md-button class="md-raised" style="background-color: yellow; color: black">-->
+<!--                        Add to basket-->
+<!--                    </md-button>-->
+<!--                    <md-button class="md-raised" style="background-color: yellow; color: black">-->
+<!--                        Buy-->
+<!--                    </md-button>-->
                 </md-card-actions>
             </md-card>
         </md-grid-tile>

@@ -43,13 +43,13 @@ public class BookController {
     @GetMapping(value = "/books")
     public String list(@PageableDefault(size = 8, direction = Sort.Direction.ASC, sort = "price") Pageable pageable, Model model) {
         model.addAttribute("books", bookRepository.findAll(pageable));
-//        model.addAttribute("files", storageService
-//                .loadAll()
-//                .map(path ->
-//                        MvcUriComponentsBuilder
-//                                .fromMethodName(BookController.class, "serveFile", path.getFileName().toString())
-//                                .build().toString())
-//                .collect(Collectors.toList()));
+        model.addAttribute("files", storageService
+                .loadAll()
+                .map(path ->
+                        MvcUriComponentsBuilder
+                                .fromMethodName(BookController.class, "serveFile", path.getFileName().toString())
+                                .build().toString())
+                .collect(Collectors.toList()));
         LOG.info("All books");
         return "book/books";
     }
@@ -103,7 +103,7 @@ public class BookController {
             LOG.info("Displaying book with ID: " + id);
         } else {
             LOG.error("Book not found with ID: " + id);
-            return "error/book-not-found"; // Redirect or show a not found page
+            return "error/book-not-found";
         }
         return "book/bookshow";
     }
@@ -116,25 +116,10 @@ public class BookController {
             LOG.info("Editing book with ID: " + id);
         } else {
             LOG.error("Book not found with ID: " + id);
-            return "error/book-not-found"; // Redirect or show a not found page
+            return "error/book-not-found";
         }
         return "book/bookform";
     }
-
-
-//    @RequestMapping("book/{id}")
-//    public String showBook(@PathVariable Long id, Model model) {
-//        model.addAttribute("book", bookRepository.findById(id));
-//        LOG.info("Book id: " + id);
-//        return "book/bookshow";
-//    }
-//
-//    @RequestMapping("book/edit/{id}")
-//    public String edit(@PathVariable Long id, Model model) {
-//        model.addAttribute("book", bookRepository.findById(id));
-//        LOG.info("Edited book id: " + id);
-//        return "book/bookform";
-//    }
 
     /**
      * New book.

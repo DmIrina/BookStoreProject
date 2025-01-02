@@ -8,25 +8,25 @@ myApp.config(function ($mdThemingProvider) {
 myApp.controller('template', function ($scope) {
     $scope.mobile = [
         {
-            "title": "Шістка воронів",
+            "name": "Шістка воронів",
         },
         {
-            "title": "Мемуари Ванітаса",
+            "name": "Мемуари Ванітаса",
         },
         {
-            "title": "Володар перснів",
+            "name": "Володар перснів",
         },
         {
-            "title": "Про свободу",
+            "name": "Про свободу",
         },
         {
-            "title": "Я бачу вас цікавить пітьма",
+            "name": "Я бачу вас цікавить пітьма",
         },
         {
-            "title": "Ерагон",
+            "name": "Ерагон",
         },
         {
-            "title": "Відьмак",
+            "name": "Відьмак",
         }
     ];
 });
