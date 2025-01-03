@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+
 <head>
     <title>Books</title>
     <style>
@@ -47,6 +48,40 @@
 <body layout="column">
 <th:block th:include="fragments/header :: header"></th:block>
 
+<div sec:authorize="hasRole('ADMIN')">
+    <div th:if="${not #lists.isEmpty(books)}" class="content">
+        <h2>Book List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Book Id</th>
+                <th>Назва</th>
+                <th>Ціна</th>
+                <th></th>
+                <th>Обкладинка</th>
+                <th>Переглянути</th>
+                <th>Редагувати</th>
+                <th>Видалити</th>
+            </tr>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}"><a href="/book/${book.id}">Id</a></td>
+                <td th:text="${book.bookId}">Book Id</td>
+                <td th:text="${book.title}">Назва</td>
+                <td th:text="${'$'+ #numbers.formatDecimal(book.price, 1, 2)}">Ціна</td>
+                <td>
+                    <span th:if="${book.price lt 100}">Special offer!</span>
+                </td>
+                <td>
+                    <img width="20" th:src="@{/images/{coverImages}(coverImages=${book.coverImage})}"/>
+                </td>
+                <td><a th:href="${'/book/' + book.id}">Переглянути</a></td>
+                <td><a th:href="${'/book/edit/' + book.id}">Редагувати</a></td>
+                <td><a th:href="${'/book/delete/' + book.id}">Видалити</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
 <div th:if="${not #lists.isEmpty(books)}" class="content">
     <h2>Book List</h2>
     <table class="table table-striped">
@@ -58,8 +93,7 @@
             <th></th>
             <th>Обкладинка</th>
             <th>Переглянути</th>
-            <th>Редагувати</th>
-            <th>Видалити</th>
+
         </tr>
         <tr th:each="book : ${books}">
             <td th:text="${book.id}"><a href="/book/${book.id}">Id</a></td>
@@ -73,8 +107,7 @@
                 <img width="20" th:src="@{/images/{coverImages}(coverImages=${book.coverImage})}"/>
             </td>
             <td><a th:href="${'/book/' + book.id}">Переглянути</a></td>
-            <td><a th:href="${'/book/edit/' + book.id}">Редагувати</a></td>
-            <td><a th:href="${'/book/delete/' + book.id}">Видалити</a></td>
+
         </tr>
     </table>
 </div>
@@ -109,24 +142,24 @@
     </md-grid-list>
 </div>
 <div th:if="${not #lists.isEmpty(books)}">
-<nav>
-    <ul class="pagination" th:with="total = ${books.totalPages}">
-        <li th:if="${books.hasPrevious()}">
-            <a th:href="@{/books(page=${books.previousPageable().pageNumber},size=${books.size})}"
-               aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li th:each="page : ${#numbers.sequence(0, total - 1)}"><a
-                th:href="@{/books(page=${page},size=${books.size})}" th:text="${page + 1}">1</a></li>
-        <li th:if="${books.hasNext()}">
-            <a th:href="@{/users(page=${books.nextPageable().pageNumber},size=${books.size})}"
-               aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+    <nav>
+        <ul class="pagination" th:with="total = ${books.totalPages}">
+            <li th:if="${books.hasPrevious()}">
+                <a th:href="@{/books(page=${books.previousPageable().pageNumber},size=${books.size})}"
+                   aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li th:each="page : ${#numbers.sequence(0, total - 1)}"><a
+                    th:href="@{/books(page=${page},size=${books.size})}" th:text="${page + 1}">1</a></li>
+            <li th:if="${books.hasNext()}">
+                <a th:href="@{/users(page=${books.nextPageable().pageNumber},size=${books.size})}"
+                   aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 <th:block th:include="fragments/headerinc :: angular"></th:block>
 
