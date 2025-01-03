@@ -3,21 +3,89 @@
 <head>
     <title>Spring Boot Example</title>
     <th:block th:include="fragments/headerinc :: head"></th:block>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .logo {
+            width: 150px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            font-family: 'Garamond', serif;
+            font-size: 2em;
+            color: #555;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 
 <header>
-    <div ng-controller="AppCtrl" layout="row" layout-align="end  center">
-<!--        <md-button class="md-raised" id="SingIn">-->
-<!--            Log In-->
-<!--        </md-button>-->
+    <div ng-controller="AppCtrl" layout="row" layout-align="end center">
         <md-button class="md-raised" id="SingUp" ng-click="SingUp($event)">
             Sing up
         </md-button>
     </div>
 </header>
 
+<main>
+    <div>
+        <img src="/images/logo.png" alt="Bookstore Logo" class="logo">
+    </div>
+
+    <div class="content">
+        <h1>Вітаємо у нашій книгарні!</h1>
+        <p>
+            Читання — це ключ до знань, нових ідей та безмежної уяви. Наша книгарня — це більше, ніж просто магазин. Це місце,
+            яке об’єднує книголюбів уже понад 10 років. Ми пишаємося тим, що за цей час наші покупці стали нашими друзями,
+            а мережа перетворилася на справжню спільноту однодумців.
+        </p>
+        <p>
+            Ми невпинно працюємо над тим, щоб зробити вибір книг ще зручнішим, а обслуговування — приємним. Дякуємо за те,
+            що залишаєтеся з нами і підтримуєте нас у цій прекрасній подорожі світом книг!
+        </p>
+        <p>
+            У нас ви знайдете книги на будь-який смак: від класичної літератури до сучасних бестселерів, від наукової фантастики
+            до документалістики. Ми постійно оновлюємо наш асортимент, додаючи найновіші видання та рідкісні твори, які важко знайти
+            в інших магазинах.
+        </p>
+        <p>
+            Також ми пропонуємо регулярні акції та знижки для наших постійних клієнтів. Наша мета — щоб кожен зміг знайти саме ту
+            книгу, яка змінить його життя, подарує новий погляд на світ або просто стане джерелом приємного відпочинку.
+        </p>
+    </div>
+</main>
 
 <script type="text/ng-template" id="forgetpassword.html">
     <md-toolbar>
@@ -84,7 +152,6 @@
                     <md-dialog-content style="background-color: white">
                         <div class="md-dialog-content" style="margin-top:-20px">
                             <md-input-container class="md-icon-float md-block" md-theme="docs-dark">
-                                <!-- Use floating label instead of placeholder -->
                                 <label>Email</label>
                                 <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
                                 <input name="email" ng-model="UserData.email" type="email" required/>
@@ -238,7 +305,6 @@
         </md-tabs>
     </div>
 </script>
-<!--<div ng-include src="'/books'"></div>-->
 
 <th:block th:include="fragments/headerinc :: angular"></th:block>
 

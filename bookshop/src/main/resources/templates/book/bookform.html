@@ -3,6 +3,44 @@
 <head lang="en">
 
     <title>Spring Boot Example</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            font-family: 'Garamond', serif;
+            font-size: 2em;
+            color: #555;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #666;
+        }
+    </style>
 
     <th:block th:include="fragments/headerinc :: head"></th:block>
 </head>
@@ -13,31 +51,32 @@
     <h2 th:text="${message}"/>
 </div>
 
-
-<form th:object="${book}" th:action="@{/book}" method="post" enctype="multipart/form-data">
-    <input type="hidden" th:field="*{id}"/>
-    <input type="hidden" th:field="*{version}"/>
-    <md-content layout="column" layout-align="start start" flex layout-padding>
-        <span flex class="md-headline">book Details</span>
-        <div md-theme="green" flex>
-            <md-input-container>
-                <label>book Id</label>
-                <input type="text" th:field="*{bookId}">
-            </md-input-container>
-            <md-input-container>
-                <label>Назва</label>
-                <input type="text" th:field="*{title}">
-            </md-input-container>
-            <md-input-container>
-                <label>Ціна</label>
-                <input type="text" th:field="*{price}">
-            </md-input-container>
-            File to upload:
-            <input type="file" th:name="file"/>
-            <md-button type='submit' value="Upload" class="md-raised md-primary">Submit</md-button>
-        </div>
-    </md-content>
-</form>
+<div class="content">
+    <form th:object="${book}" th:action="@{/book}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{version}"/>
+        <md-content layout="column" layout-align="start start" flex layout-padding>
+            <span flex class="md-headline">book Details</span>
+            <div md-theme="green" flex>
+                <md-input-container>
+                    <label>book Id</label>
+                    <input type="text" th:field="*{bookId}">
+                </md-input-container>
+                <md-input-container>
+                    <label>Назва</label>
+                    <input type="text" th:field="*{title}">
+                </md-input-container>
+                <md-input-container>
+                    <label>Ціна</label>
+                    <input type="text" th:field="*{price}">
+                </md-input-container>
+                File to upload:
+                <input type="file" th:name="file"/>
+                <md-button type='submit' value="Upload" class="md-raised md-primary">Submit</md-button>
+            </div>
+        </md-content>
+    </form>
+</div>
 <th:block th:include="fragments/headerinc :: angular"></th:block>
 
 </body>

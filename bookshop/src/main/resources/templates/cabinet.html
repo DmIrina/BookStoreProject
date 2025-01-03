@@ -3,6 +3,44 @@
 
 <head>
     <title>Кабінет!</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            font-family: 'Garamond', serif;
+            font-size: 2em;
+            color: #555;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #666;
+        }
+    </style>
 </head>
 <th:block th:include="fragments/headerinc :: head"></th:block>
 <body>
@@ -12,7 +50,7 @@
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
-<div>
+<div class="content">
     <form class="form-horizontal">
         <p th:text="'principle Id: '+${principle.id}"></p>
         <p th:text="'Email: '+${principle.email}"></p>
