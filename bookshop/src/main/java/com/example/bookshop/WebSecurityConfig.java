@@ -33,8 +33,9 @@ public class WebSecurityConfig {
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/bower_components/**").permitAll()
                         .requestMatchers("/book/**", "/", "/home", "/user/**", "/registration", "/books", "/default").permitAll()
                         .requestMatchers("/cabinet", "/principle/**").authenticated()
-                        .requestMatchers("/admin/**").hasAuthority(String.valueOf(Role.ADMIN))
-                        .anyRequest().authenticated()
+//                        .requestMatchers("/admin/**").hasAuthority(String.valueOf(Role.ADMIN))
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .anyRequest().authenticated()
                 )
 
                 .formLogin(login -> login

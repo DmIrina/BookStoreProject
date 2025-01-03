@@ -65,11 +65,22 @@ public class MyUserDetailsService implements UserDetailsService {
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
             Set<GrantedAuthority> authorities = new HashSet<>();
-            for (Role role : Role.values()) {
-                authorities.add(new SimpleGrantedAuthority(role.name()));  // Використовуємо .name() для ролі
-            }
+
+            // Додаємо тільки реальну роль користувача
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
+
             return authorities;
         }
+
+
+//        @Override
+//        public Collection<? extends GrantedAuthority> getAuthorities() {
+//            Set<GrantedAuthority> authorities = new HashSet<>();
+//            for (Role role : Role.values()) {
+//                authorities.add(new SimpleGrantedAuthority(role.name()));  // Використовуємо .name() для ролі
+//            }
+//            return authorities;
+//        }
 
         @Override
         public String getPassword() {

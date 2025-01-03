@@ -22,7 +22,7 @@ public class User {
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
-    private Boolean isAccountNonLocked;
+    private Boolean isAccountNonLocked = true;
 
     public User() {
     }
@@ -87,23 +87,38 @@ public class User {
         this.isAccountNonLocked = isAccountNonLocked;
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        User user = (User) o;
+//        return Objects.equals(id, user.id) &&
+//                Objects.equals(username, user.username) &&
+//                Objects.equals(email, user.email) &&
+//                Objects.equals(password, user.password) &&
+//                role == user.role &&
+//                Objects.equals(isAccountNonLocked, user.isAccountNonLocked);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, username, email, password, role, isAccountNonLocked);
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(id, user.id) &&
-                Objects.equals(username, user.username) &&
-                Objects.equals(email, user.email) &&
-                Objects.equals(password, user.password) &&
-                role == user.role &&
-                Objects.equals(isAccountNonLocked, user.isAccountNonLocked);
+                Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, email, password, role, isAccountNonLocked);
+        return Objects.hash(id, email);
     }
+
 
     @Override
     public String toString() {
