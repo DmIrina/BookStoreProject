@@ -7,13 +7,6 @@ This project represents an information system for managing a network of bookstor
  * Maven >=3.8.8
  * MySQL
     -   mysql -u root -p$mySQL_password -e "CREATE DATABASE IF NOT EXISTS bookshop;"
-
- * Bower
-    - sudo apt-get update
-    - sudo apt install nodejs-legacy
-    - sudo apt-get install npm
-    - sudo npm install -g bower 
-    - sudo npm install -g bowerrc
  
  ## Spring REST, HATEOAS
  spring.data.rest.base-path=/api
