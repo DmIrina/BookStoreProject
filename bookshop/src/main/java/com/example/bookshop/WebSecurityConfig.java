@@ -1,6 +1,5 @@
 package com.example.bookshop;
 
-import com.example.bookshop.models.Role;
 import com.example.bookshop.services.MyUserDetailsService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
@@ -33,9 +32,8 @@ public class WebSecurityConfig {
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/bower_components/**").permitAll()
                         .requestMatchers("/book/**", "/", "/home", "/user/**", "/registration", "/books", "/default").permitAll()
                         .requestMatchers("/cabinet", "/principle/**").authenticated()
-//                        .requestMatchers("/admin/**").hasAuthority(String.valueOf(Role.ADMIN))
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
-                                .anyRequest().authenticated()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
 
                 .formLogin(login -> login
@@ -53,8 +51,6 @@ public class WebSecurityConfig {
                             response.sendRedirect("/accessDenied");
                         })
                 );
-
-
         return http.build();
     }
 
